@@ -69,6 +69,30 @@ class DynamoDisruptionRepository:
         self._table.put_item(Item=item, ConditionExpression="attribute_not_exists(pk)")
         return _event_from_item(item)
 
+    def record_simulation(self, scenario: str, readings: list[dict[str, Any]]) -> dict[str, Any]:
+        """Replace the training snapshot atomically; never create a live disruption."""
+        now = datetime.now(timezone.utc)
+        item = {
+            "pk": "SENSOR#rail-potheri", "sk": "CURRENT", "scenario": scenario,
+            "readings": readings, "simulatedAt": now.isoformat().replace("+00:00", "Z"),
+            "expiresAt": int(now.timestamp()) + 3600,
+        }
+        self._table.put_item(Item=item)
+        return {"facilityId": "rail-potheri", "scenario": scenario, "simulatedAt": item["simulatedAt"]}
+
+    def record_confirmation(self, state: str, note: str, operator_id: str) -> dict[str, Any]:
+        """Store a time-limited manual attestation separately from simulator readings."""
+        now = datetime.now(timezone.utc)
+        item = {
+            "pk": "CONFIRMATION#rail-potheri", "sk": "CURRENT", "state": state,
+            "note": note, "operatorId": operator_id,
+            "confirmedAt": now.isoformat().replace("+00:00", "Z"),
+            "expiresAt": int((now + timedelta(minutes=15)).timestamp()),
+        }
+        self._table.put_item(Item=item)
+        return {"facilityId": "rail-potheri", "state": state,
+                "confirmedAt": item["confirmedAt"], "expiresAt": item["expiresAt"]}
+
     def list_active(self) -> list[dict[str, Any]]:
         items: list[dict[str, Any]] = []
         request: dict[str, Any] = {

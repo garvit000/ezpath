@@ -433,25 +433,39 @@ Once the search identifies suitable destination labels, the system reconstructs 
 
 Because the graph is a multigraph, identifying a path using only its node sequence is insufficient.
 
-Two nodes may be connected by multiple edges with different attributes.
+To connect the application to the deployed AWS routing backend:
+1. Copy `.env.example` to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+2. Update the environment variables:
+   ```env
+   VITE_DEMO_MODE=false
+   VITE_API_BASE_URL=https://your-http-api-id.execute-api.ap-south-1.amazonaws.com
+   VITE_AWS_REGION=ap-south-1
+   VITE_LOCATION_MAP_NAME=EzPathSrmCampusMap
+   VITE_LOCATION_API_KEY=your_referer_restricted_browser_key
+   VITE_COGNITO_USER_POOL_ID=ap-south-1_replace_me
+   VITE_COGNITO_CLIENT_ID=your_cognito_app_client_id
+   VITE_APPSYNC_EVENTS_HTTP_URL=https://your-api-id.appsync-api.ap-south-1.amazonaws.com/event
+   VITE_APPSYNC_EVENTS_REALTIME_URL=wss://your-api-id.appsync-realtime-api.ap-south-1.amazonaws.com/event/realtime
+   VITE_APPSYNC_EVENTS_API_KEY=your_subscriber_key
+   VITE_APPSYNC_EVENTS_CHANNEL=/disruptions/network
+   ```
+3. Rebuild and deploy:
+   ```bash
+   npm run build
+   ```
 
-Therefore, the reconstruction process retains the actual traversed edge information, including the edge key.
+Production mode plans journeys across Chennai with published metro, suburban rail and MTC bus timetables through `POST /v1/journeys`, and uses `POST /v1/routes` for trips inside the SRM campus. Times are timetabled rather than live. Metro fares come from the CMRL fare table; the bus and suburban feeds publish no fares, so those totals are shown as incomplete. The feeds publish no wheelchair-boarding data, so transit journeys are always marked unverified. Operator writes require a valid Cognito access token; demo scenario controls remain available only when `VITE_DEMO_MODE=true`.
 
-Conceptually, the route is reconstructed using:
+### Constraint 10 and 12 workflow
 
-```text
-(u, v, key)
-```
+In AWS mode, the operator console has a **Potheri lift sensor simulator** with normal, outage, missing, delayed, spike, frozen, fluctuating, and disagreement cases. These are synthetic training readings stored in the live-status table for one hour. The router checks freshness, independent source agreement, sequence progress, and state changes; no simulated reading establishes real physical accessibility.
 
-Where:
+When a traveller's profile requires lift status and a suburban journey boards or leaves rail at Potheri, the planner identifies the single missing fact: **is the Potheri lift operational?** It shows routes for comparison but withholds the affected itinerary until a real-world operator check. An authenticated operator can record an operational or outage attestation with a source note; it expires after 15 minutes. A confirmed outage keeps the affected itinerary unavailable. Strict wheelchair journeys still remain unavailable when boarding accessibility is unverified, even if the lift is confirmed operational.
 
-- `u` is the starting node of an edge.
-- `v` is the ending node.
-- `key` identifies the specific edge between those nodes.
-
-This ensures that the reconstructed route corresponds to the exact edges evaluated during accessibility assessment and pathfinding.
-
-The reconstructed geographical coordinates are then converted into a representation suitable for frontend visualisation.
+The CDK stack creates manual Amplify Hosting, API Gateway CORS for the generated Amplify URL, and an Amazon Location map key restricted to map rendering from localhost and that hosted URL. It does not connect Amplify to GitHub. Follow [infra/DEPLOYMENT.md](infra/DEPLOYMENT.md) after IAM access is configured; the live deployment is managed from `infra/`.
 
 ---
 

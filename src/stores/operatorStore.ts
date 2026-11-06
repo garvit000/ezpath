@@ -13,6 +13,7 @@ interface OperatorState {
   disruptions: DisruptionEvent[];
   selectedScenarioId: string;
   isSimulating: boolean;
+  loadError: string | null;
 
   // Actions
   loadNetworkData: () => Promise<void>;
@@ -30,19 +31,23 @@ export const useOperatorStore = create<OperatorState>((set, get) => ({
   disruptions: [],
   selectedScenarioId: isDemoMode ? 'scenario_1' : '',
   isSimulating: false,
+  loadError: null,
 
   loadNetworkData: async () => {
     const client = getApiClient();
-    const [data, disruptions] = await Promise.all([
+    const [data, disruptions] = await Promise.allSettled([
       client.getNetworkEntities(),
       client.getActiveEvents(),
     ]);
-    set({
-      nodes: data.nodes,
-      edges: data.edges,
-      facilities: data.facilities,
-      disruptions
-    });
+    set((state) => ({
+      nodes: data.status === 'fulfilled' ? data.value.nodes : state.nodes,
+      edges: data.status === 'fulfilled' ? data.value.edges : state.edges,
+      facilities: data.status === 'fulfilled' ? data.value.facilities : state.facilities,
+      disruptions: disruptions.status === 'fulfilled' ? disruptions.value : state.disruptions,
+      loadError: disruptions.status === 'rejected'
+        ? 'Live disruption data could not be loaded, so this list may be out of date.'
+        : null,
+    }));
   },
 
   applyScenario: async (scenarioId: string) => {

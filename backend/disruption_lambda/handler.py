@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import base64
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import json
 import logging
 import os
@@ -139,10 +139,64 @@ def _event_id(event: dict[str, Any]) -> str:
     return value.strip()
 
 
+SIMULATION_SCENARIOS = frozenset({
+    "healthy", "outage", "missing", "delayed", "spike", "frozen", "fluctuating", "disagree",
+})
+
+
+def _scenario_readings(scenario: str, now: datetime) -> list[dict[str, Any]]:
+    """Create repeatable training cases without accepting arbitrary sensor claims."""
+    def reading(source: str, state: str, sequence: int, seconds_ago: int) -> dict[str, Any]:
+        return {"sourceId": source, "state": state, "sequence": sequence,
+                "observedAt": (now - timedelta(seconds=seconds_ago)).isoformat().replace("+00:00", "Z")}
+
+    if scenario == "missing":
+        return []
+    if scenario == "delayed":
+        return [reading("lift", "OPERATIONAL", 1, 180)]
+    if scenario == "frozen":
+        return [reading("lift", "OPERATIONAL", 7, ago) for ago in (30, 20, 10)]
+    if scenario == "fluctuating":
+        return [reading("lift", state, index, 50 - index * 10)
+                for index, state in enumerate(("OPERATIONAL", "OUTAGE", "OPERATIONAL", "OUTAGE", "OPERATIONAL"))]
+    if scenario == "spike":
+        return [reading("lift", state, index, 30 - index * 10)
+                for index, state in enumerate(("OPERATIONAL", "OPERATIONAL", "OUTAGE"))]
+    if scenario == "disagree":
+        return [reading("lift", "OPERATIONAL", 1, 10), reading("platform", "OUTAGE", 1, 8)]
+    state = "OUTAGE" if scenario == "outage" else "OPERATIONAL"
+    return [reading("lift", state, 1, 10), reading("platform", state, 1, 8)]
+
+
 def handle_event(event: dict[str, Any], repository: Any) -> dict[str, Any]:
     """Handle one HTTP API event with an injected persistence repository."""
     route_key = event.get("routeKey")
     try:
+        if route_key == "POST /v1/telemetry/simulate":
+            payload = _request_body(event)
+            if payload.get("facilityId") != "rail-potheri":
+                raise EventRequestError("Only the Potheri lift simulator is available")
+            scenario = _required_text(payload, "scenario", 20)
+            if scenario not in SIMULATION_SCENARIOS:
+                raise EventRequestError("scenario is not supported")
+            return _json_response(201, repository.record_simulation(
+                scenario, _scenario_readings(scenario, datetime.now(timezone.utc)),
+            ))
+        if route_key == "POST /v1/telemetry/confirm":
+            payload = _request_body(event)
+            if payload.get("facilityId") != "rail-potheri":
+                raise EventRequestError("Only the Potheri lift can be confirmed")
+            if payload.get("verifiedFromRealWorld") is not True:
+                raise EventRequestError("Real-world verification must be acknowledged")
+            state = _required_text(payload, "state", 20)
+            if state not in {"OPERATIONAL", "OUTAGE"}:
+                raise EventRequestError("state must be OPERATIONAL or OUTAGE")
+            note = _required_text(payload, "note", 500)
+            claims = event.get("requestContext", {}).get("authorizer", {}).get("jwt", {}).get("claims", {})
+            operator_id = claims.get("sub")
+            if not operator_id:
+                raise EventRequestError("Authenticated operator identity is required")
+            return _json_response(201, repository.record_confirmation(state, note, str(operator_id)))
         if route_key == "GET /v1/events/active":
             return _json_response(200, repository.list_active())
         if route_key == "POST /v1/events":

@@ -1,14 +1,21 @@
+from datetime import datetime, timedelta, timezone
+
 from backend.route_lambda.status_overlay import DynamoStatusProvider
 
 
 class FakeTable:
-    def __init__(self, responses):
+    def __init__(self, responses, items=None):
         self.responses = list(responses)
         self.requests = []
+        self.items = items or {}
 
     def query(self, **request):
         self.requests.append(request)
         return self.responses.pop(0)
+
+    def get_item(self, **request):
+        self.get_request = request
+        return {"Item": self.items.get(request["Key"]["pk"], {})}
 
 
 class FakeDynamo:
@@ -47,6 +54,8 @@ def test_status_snapshot_paginates_and_only_hard_blocks_closures():
     assert snapshot.blocked_entity_ids == frozenset({"lift-a1", "path-7"})
     assert table.requests[0]["IndexName"] == "active-events"
     assert table.requests[1]["ExclusiveStartKey"]["pk"] == "EVENT#event-2"
+    assert table.get_request["ConsistentRead"] is True
+    assert snapshot.facility_assessment["quality"] == "UNKNOWN"
 
 
 def test_status_snapshot_ignores_incomplete_blocking_records():
@@ -59,3 +68,14 @@ def test_status_snapshot_ignores_incomplete_blocking_records():
     assert snapshot.active_event_ids == ("event-1",)
     assert snapshot.blocking_event_ids == ()
     assert snapshot.blocked_entity_ids == frozenset()
+
+
+def test_expired_operator_confirmation_is_not_used():
+    now = datetime.now(timezone.utc)
+    expired = {"state": "OPERATIONAL", "confirmedAt": now.isoformat(),
+               "expiresAt": int((now - timedelta(seconds=1)).timestamp())}
+    current = {**expired, "expiresAt": int((now + timedelta(minutes=5)).timestamp())}
+    table = FakeTable([{"Items": []}], {"CONFIRMATION#rail-potheri": expired})
+    assert DynamoStatusProvider("status-table", FakeDynamo(table)).get_snapshot().operator_confirmation is None
+    table = FakeTable([{"Items": []}], {"CONFIRMATION#rail-potheri": current})
+    assert DynamoStatusProvider("status-table", FakeDynamo(table)).get_snapshot().operator_confirmation["state"] == "OPERATIONAL"

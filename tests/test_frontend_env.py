@@ -8,9 +8,11 @@ from infra.scripts.render_frontend_env import render_environment, select_stack_o
 STACK_OUTPUTS = {
     "ApiUrl": "https://api.example",
     "AwsRegion": "ap-south-1",
-    "LocationMapName": "EzPathCampusMap",
+    "LocationMapName": "EzPathSrmCampusMap",
+    "LocationSatelliteMapName": "EzPathSrmSatelliteMap",
     "OperatorUserPoolId": "ap-south-1_pool",
     "OperatorUserPoolClientId": "client-id",
+    "OperatorUserPoolDomain": "https://ezpath-operators.auth.ap-south-1.amazoncognito.com",
     "AppSyncEventsHttpUrl": "https://events.example/event",
     "AppSyncEventsRealtimeUrl": "wss://events.example/event/realtime",
     "AppSyncEventsSubscriberKey": "subscriber-key",

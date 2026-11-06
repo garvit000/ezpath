@@ -39,6 +39,7 @@ export async function saveJourney(route: JourneyRoute, originName: string, desti
     arrivalTime: route.arrivalTime,
     totalDurationMinutes: route.totalDurationMinutes,
     totalFareINR: route.totalFareINR,
+    fareStatus: route.fareStatus,
     walkingDistanceMeters: route.walkingDistanceMeters,
     transfersCount: route.transfersCount,
     transportModes: route.transportModes,
@@ -67,6 +68,11 @@ export async function getSavedJourneyById(id: string): Promise<SavedJourney | un
 export async function deleteSavedJourney(id: string): Promise<void> {
   const db = await getDb();
   await db.delete('saved_journeys', id);
+}
+
+export async function getSavedJourneyByRouteId(routeId: string): Promise<SavedJourney | undefined> {
+  const journeys = await getAllSavedJourneys();
+  return journeys.reverse().find((journey) => journey.routeId === routeId);
 }
 
 export function isOffline(): boolean {

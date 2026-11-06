@@ -40,6 +40,16 @@ npx cdk deploy EzPathRoutingStack --outputs-file cdk-outputs.json
 Set-Location ..
 ```
 
+If a new-account Amplify app quota increase is still pending, deploy the AWS core first:
+
+```powershell
+npx cdk deploy EzPathRoutingStack `
+  --context includeHosting=false `
+  --outputs-file cdk-outputs.json
+```
+
+After AWS approves the quota, run the normal deploy command without that context flag. CDK then adds Amplify Hosting and updates API Gateway CORS and the Amazon Location key referers to include its generated URL.
+
 `infra/cdk-outputs.json` contains deployment-specific identifiers and the browser AppSync subscriber key. Keep it local and do not commit it.
 
 ## 3. Upload the generated routing graph
@@ -53,6 +63,18 @@ Set-Location ../..
 ```
 
 The uploader verifies the manifest and SHA-256 before uploading the graph and manifest to the versioned bucket.
+
+Then build the Chennai timetable artifact and upload it to the same bucket. The API returns HTTP 503 for `POST /v1/journeys` until this object exists:
+
+```powershell
+Set-Location traversal/routing
+$env:PYTHONPATH = "src"
+python scripts/build_transit.py
+aws s3 cp data/chennai-transit.json.gz "s3://<GraphBucketName>/transit/chennai-transit.json.gz"
+Set-Location ../..
+```
+
+Rerun this step whenever a feed under `data/` changes. Running Lambda environments keep the copy they loaded, so redeploy the function after replacing it.
 
 ## 4. Generate the production frontend environment
 

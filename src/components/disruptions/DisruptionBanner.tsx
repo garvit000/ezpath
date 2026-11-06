@@ -18,13 +18,13 @@ export const DisruptionBanner: React.FC = () => {
       aria-live="assertive"
       className="p-4 rounded-xl bg-rose-50 border-2 border-disruption text-ink shadow-floating animate-in slide-in-from-top-4 duration-300"
     >
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="flex flex-col items-stretch gap-4">
         <div className="flex items-start gap-3">
           <div className="p-2 rounded-lg bg-disruption text-white shrink-0 shadow-sm animate-pulse">
             <AlertTriangle className="w-5 h-5" />
           </div>
           <div className="space-y-0.5">
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <span className="font-heading font-extrabold text-sm text-disruption uppercase tracking-wider">
                 Live Disruption Alert
               </span>
@@ -36,18 +36,18 @@ export const DisruptionBanner: React.FC = () => {
               Your journey has been affected.
             </h3>
             <p className="text-xs text-slate-700 leading-relaxed max-w-xl">
-              <strong>{activeDisruptionAlert.entityName}</strong> at {activeDisruptionAlert.stationName || 'station'} is currently unavailable ({activeDisruptionAlert.reason}).
+              <strong>{activeDisruptionAlert.entityName}</strong>{activeDisruptionAlert.stationName && activeDisruptionAlert.stationName !== activeDisruptionAlert.entityName ? ` at ${activeDisruptionAlert.stationName}` : ''} is reported as affected ({activeDisruptionAlert.reason}).
             </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
+        <div className="flex items-center gap-2 w-full">
           <Button
             variant="danger"
             size="md"
             onClick={() => replanJourney()}
             isLoading={isReplanning}
-            className="w-full sm:w-auto font-semibold text-xs shadow-md"
+            className="w-full font-semibold text-xs shadow-md"
           >
             <RefreshCw className="w-4 h-4 mr-1.5" />
             Recalculate Accessible Route

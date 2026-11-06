@@ -34,6 +34,7 @@ export const JourneyPlanner: React.FC = () => {
     destinationId,
     routes,
     selectedRouteId,
+    decision,
     setSelectedRouteId,
     searchJourneys,
     isLoading,
@@ -59,7 +60,11 @@ export const JourneyPlanner: React.FC = () => {
     }
   }, []);
 
-  const selectedRoute = routes.find(r => r.id === selectedRouteId) || routes[0] || null;
+  const selectedRoute = routes.find(r => r.id === selectedRouteId) ||
+    (decision && decision.status !== 'READY' ? null : routes[0]) || null;
+  const affectedRouteIds = new Set(decision?.status === 'READY' ? []
+    : decision?.missingFacts.flatMap((fact) => fact.affectedRouteIds) ?? []);
+  const selectedNeedsConfirmation = selectedRoute ? affectedRouteIds.has(selectedRoute.id) : false;
 
   const handleSaveCurrentJourney = async () => {
     if (!selectedRoute) return;
@@ -167,8 +172,8 @@ export const JourneyPlanner: React.FC = () => {
               {isLoading && (
                 <div className="space-y-3 py-6 text-center">
                   <div className="inline-block animate-spin w-8 h-8 border-4 border-accent border-t-transparent rounded-full mb-2" />
-                  <div className="text-xs font-semibold text-ink">Evaluating Multimodal Network...</div>
-                  <div className="text-[11px] text-slate-500">Checking elevator telemetry and step-free constraints</div>
+                  <div className="text-xs font-semibold text-ink">Finding your routes</div>
+                  <div className="text-[11px] text-slate-500">Checking timetables, walking limits and reported disruptions</div>
                 </div>
               )}
 
@@ -176,7 +181,7 @@ export const JourneyPlanner: React.FC = () => {
                 <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-xs text-ink space-y-2">
                   <div className="flex items-center gap-1.5 font-bold text-disruption">
                     <AlertCircle className="w-4 h-4 shrink-0" />
-                    <span>No Feasible Accessible Route</span>
+                    <span>No route found</span>
                   </div>
                   <p className="text-slate-600 leading-relaxed">{error}</p>
                 </div>
@@ -188,10 +193,11 @@ export const JourneyPlanner: React.FC = () => {
                     <RouteCard
                       key={route.id}
                       route={route}
+                      confirmationRequired={affectedRouteIds.has(route.id)}
                       isSelected={route.id === selectedRouteId}
                       onSelect={() => setSelectedRouteId(route.id)}
                       onOpenInspector={() => setConstraintInspectorOpen(true)}
-                      onViewDetails={() => navigate(`/journey/${route.id}`)}
+                      onViewDetails={affectedRouteIds.has(route.id) ? undefined : () => navigate(`/journey/${route.id}`)}
                     />
                   ))}
                 </div>

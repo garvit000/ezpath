@@ -9,6 +9,7 @@ import { PwaInstallBanner } from '../ui/PwaInstallBanner';
 import { liveEventsService } from '../../services/realtime/liveEvents';
 import { useJourneyStore } from '../../stores/journeyStore';
 import { useOperatorStore } from '../../stores/operatorStore';
+import { isDemoMode } from '../../config/runtime';
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -29,6 +30,7 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
     // Subscribe to live disruption events across tabs and sockets
     const unsubscribe = liveEventsService.subscribe((events) => {
       handleDisruptionNotification(events);
+      if (!isDemoMode) useOperatorStore.setState({ disruptions: events, loadError: null });
     });
 
     return () => {

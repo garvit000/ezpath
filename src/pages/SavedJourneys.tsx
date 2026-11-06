@@ -16,6 +16,7 @@ import {
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
 import { Card, CardContent } from '../components/ui/Card';
+import { fareLabel } from '../utils/fare';
 
 export const SavedJourneys: React.FC = () => {
   const [savedJourneys, setSavedJourneys] = useState<SavedJourney[]>([]);
@@ -148,15 +149,15 @@ export const SavedJourneys: React.FC = () => {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
                   <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
                     <span className="text-slate-400 block text-[10px]">Duration</span>
-                    <strong className="text-ink">{item.totalDurationMinutes} min</strong>
+                    <strong className="text-ink">{Math.round(item.totalDurationMinutes)} min</strong>
                   </div>
                   <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
                     <span className="text-slate-400 block text-[10px]">Fare</span>
-                    <strong className="text-ink">₹{item.totalFareINR}</strong>
+                    <strong className="text-ink">{fareLabel(item.totalFareINR, item.fareStatus)}</strong>
                   </div>
                   <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
                     <span className="text-slate-400 block text-[10px]">Walking</span>
-                    <strong className="text-ink">{item.walkingDistanceMeters} m</strong>
+                    <strong className="text-ink">{Math.round(item.walkingDistanceMeters)} m</strong>
                   </div>
                   <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
                     <span className="text-slate-400 block text-[10px]">Dependent Lifts</span>

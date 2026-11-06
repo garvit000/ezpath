@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from typing import Any
+from routing.evidence import FACILITY_ID, assess
 
 
 ACTIVE_INDEX = "active-events"
@@ -14,12 +16,16 @@ class StatusSnapshot:
     active_event_ids: tuple[str, ...]
     blocking_event_ids: tuple[str, ...]
     blocked_entity_ids: frozenset[str]
+    facility_assessment: dict[str, Any] | None = None
+    operator_confirmation: dict[str, Any] | None = None
 
     def metadata(self) -> dict[str, Any]:
         return {
             "active_events": len(self.active_event_ids),
             "blocking_events": len(self.blocking_event_ids),
             "blocked_entity_ids": sorted(self.blocked_entity_ids),
+            "facility_assessment": self.facility_assessment,
+            "operator_confirmation": self.operator_confirmation,
         }
 
 
@@ -65,8 +71,24 @@ class DynamoStatusProvider:
                 continue
             blocking_ids.append(event_id)
             blocked_entities.add(entity_id)
+        evidence = self._table.get_item(
+            Key={"pk": f"SENSOR#{FACILITY_ID}", "sk": "CURRENT"}, ConsistentRead=True,
+        ).get("Item", {})
+        readings = evidence.get("readings", [])
+        assessment = assess(readings)
+        assessment["scenario"] = evidence.get("scenario")
+        confirmation_item = self._table.get_item(
+            Key={"pk": f"CONFIRMATION#{FACILITY_ID}", "sk": "CURRENT"}, ConsistentRead=True,
+        ).get("Item", {})
+        confirmation = None
+        if int(confirmation_item.get("expiresAt", 0)) > int(datetime.now(timezone.utc).timestamp()):
+            confirmation = {"state": confirmation_item["state"],
+                            "confirmedAt": confirmation_item["confirmedAt"],
+                            "expiresAt": confirmation_item["expiresAt"]}
         return StatusSnapshot(
             active_event_ids=tuple(active_ids),
             blocking_event_ids=tuple(blocking_ids),
             blocked_entity_ids=frozenset(blocked_entities),
+            facility_assessment=assessment,
+            operator_confirmation=confirmation,
         )

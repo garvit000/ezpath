@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/contracts/journey-response.schema.json",
+  "title": "Multimodal Journey Response",
+  "type": "object",
+  "required": ["request_id", "status", "journeys", "status_overlay", "transit", "message"],
+  "properties": {
+    "request_id": {"type": ["string", "null"]},
+    "status": {"enum": ["ok", "no_route"]},
+    "message": {"type": ["string", "null"]},
+    "status_overlay": {"type": "object"},
+    "transit": {"type": "object", "required": ["sources"]},
+    "journeys": {"type": "array", "items": {
+      "type": "object",
+      "required": ["journey_id", "departure", "arrival", "metrics", "fare", "modes", "legs", "accessibility", "notes"],
+      "properties": {
+        "journey_id": {"type": "string"},
+        "departure": {"type": "string", "pattern": "^[0-9]{2}:[0-9]{2}$"},
+        "arrival": {"type": "string", "pattern": "^[0-9]{2}:[0-9]{2}$"},
+        "metrics": {
+          "type": "object",
+          "required": ["duration_min", "walking_distance_m", "transfers"],
+          "additionalProperties": false,
+          "properties": {
+            "duration_min": {"type": "number", "minimum": 0},
+            "walking_distance_m": {"type": "number", "minimum": 0},
+            "transfers": {"type": "integer", "minimum": 0}
+          }
+        },
+        "fare": {
+          "type": "object",
+          "required": ["known_inr", "complete", "unknown_modes"],
+          "properties": {
+            "known_inr": {"type": "number", "minimum": 0},
+            "complete": {"type": "boolean"},
+            "unknown_modes": {"type": "array", "items": {"enum": ["bus", "metro", "rail"]}}
+          }
+        },
+        "modes": {"type": "array", "items": {"enum": ["walk", "bus", "metro", "rail"]}},
+        "legs": {"type": "array", "minItems": 1, "items": {
+          "type": "object",
+          "required": ["mode", "from", "to", "departure", "arrival", "duration_min", "distance_m", "fare_inr", "geometry"],
+          "properties": {
+            "mode": {"enum": ["walk", "bus", "metro", "rail"]},
+            "walk_source": {"enum": ["campus_graph", "estimated"]},
+            "fare_inr": {"type": ["number", "null"]},
+            "geometry": {"type": "array", "minItems": 2}
+          }
+        }},
+        "accessibility": {
+          "type": "object",
+          "required": ["status", "wheelchair_profile", "warnings"],
+          "properties": {"status": {"const": "uncertain"}}
+        },
+        "notes": {"type": "array", "items": {"type": "string"}}
+      }
+    }}
+  }
+}

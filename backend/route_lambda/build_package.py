@@ -47,6 +47,10 @@ def build(output: Path) -> Path:
         destination / "routing",
         ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "*.pyo"),
     )
+    catalog = destination / "routing" / "catalog"
+    catalog.mkdir()
+    for name in ("campus-locations.json", "chennai-locations.json"):
+        shutil.copy2(ROOT / "traversal" / "routing" / "config" / name, catalog / name)
     return destination
 
 

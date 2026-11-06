@@ -1,0 +1,1527 @@
+{
+  "schema_version": 1,
+  "region": "chennai",
+  "generated_from": "2026-11-06",
+  "attribution": "CMRL, Southern Railway and CUMTA GTFS feeds",
+  "locations": [
+    {
+      "id": "bus-adayar-bus-terminus",
+      "name": "Adayar Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0067165,
+      "longitude": 80.2531003
+    },
+    {
+      "id": "bus-ambattur-estate-bus-terminus",
+      "name": "Ambattur Estate Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0990375,
+      "longitude": 80.1696335
+    },
+    {
+      "id": "bus-ambattur-ot-bus-terminus",
+      "name": "Ambattur Ot Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.1196244,
+      "longitude": 80.1501545
+    },
+    {
+      "id": "bus-anna-square-bus-terminus",
+      "name": "Anna Square Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0664826,
+      "longitude": 80.2843151
+    },
+    {
+      "id": "bus-avadi-bus-terminus",
+      "name": "Avadi Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.120074,
+      "longitude": 80.1021298
+    },
+    {
+      "id": "bus-ayanavaram-bus-terminus",
+      "name": "Ayanavaram Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0984841,
+      "longitude": 80.2420267
+    },
+    {
+      "id": "bus-besant-nagar-bus-terminus",
+      "name": "Besant Nagar Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.000401,
+      "longitude": 80.2655022
+    },
+    {
+      "id": "bus-broadway-bus-terminus",
+      "name": "Broadway Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0871679,
+      "longitude": 80.2838869
+    },
+    {
+      "id": "bus-cmbt-bus-terminus",
+      "name": "CMBT Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0687584,
+      "longitude": 80.2052297
+    },
+    {
+      "id": "bus-chengalpet",
+      "name": "Chengalpet",
+      "category": "bus_terminus",
+      "latitude": 12.6908701,
+      "longitude": 79.9803104
+    },
+    {
+      "id": "bus-chennai-central-terminus",
+      "name": "Chennai Central Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0820545,
+      "longitude": 80.2756361
+    },
+    {
+      "id": "bus-egmore-bus-terminus",
+      "name": "Egmore Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0795096,
+      "longitude": 80.2627957
+    },
+    {
+      "id": "bus-ennore-bus-terminus",
+      "name": "Ennore Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.2147589,
+      "longitude": 80.3208134
+    },
+    {
+      "id": "bus-foreshore-estate-bus-terminus",
+      "name": "Foreshore Estate Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.022451,
+      "longitude": 80.2762943
+    },
+    {
+      "id": "bus-guduvanchery-bus-terminus",
+      "name": "Guduvanchery Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 12.8449507,
+      "longitude": 80.0614584
+    },
+    {
+      "id": "bus-guindy",
+      "name": "Guindy",
+      "category": "bus_terminus",
+      "latitude": 13.0090775,
+      "longitude": 80.2115898
+    },
+    {
+      "id": "bus-guindy-race-course",
+      "name": "Guindy Race Course",
+      "category": "bus_terminus",
+      "latitude": 13.0080467,
+      "longitude": 80.2133884
+    },
+    {
+      "id": "bus-hasthinapuram-bus-terminus",
+      "name": "Hasthinapuram Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 12.9404917,
+      "longitude": 80.1506256
+    },
+    {
+      "id": "bus-ioc-bus-terminus",
+      "name": "Ioc Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.1390618,
+      "longitude": 80.2820882
+    },
+    {
+      "id": "bus-iyyapanthangal-bus-terminus",
+      "name": "Iyyapanthangal Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.037782,
+      "longitude": 80.1348944
+    },
+    {
+      "id": "bus-k-kannadasan-nagar-bus-terminu",
+      "name": "K Kannadasan Nagar Bus Terminu",
+      "category": "bus_terminus",
+      "latitude": 13.136144,
+      "longitude": 80.2567725
+    },
+    {
+      "id": "bus-kannaki-nagar-bus-terminus",
+      "name": "Kannaki Nagar Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 12.9256216,
+      "longitude": 80.2383038
+    },
+    {
+      "id": "bus-karanodai",
+      "name": "Karanodai",
+      "category": "bus_terminus",
+      "latitude": 13.2494046,
+      "longitude": 80.1563265
+    },
+    {
+      "id": "bus-keelkattlai-bus-terminus",
+      "name": "Keelkattlai Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 12.9560433,
+      "longitude": 80.1861952
+    },
+    {
+      "id": "bus-kelambakkam-bus-terminus",
+      "name": "Kelambakkam Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 12.7862477,
+      "longitude": 80.2219993
+    },
+    {
+      "id": "bus-kk-nagar-bus-terminus",
+      "name": "Kk Nagar Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.035389,
+      "longitude": 80.205694
+    },
+    {
+      "id": "bus-korattur",
+      "name": "Korattur",
+      "category": "bus_terminus",
+      "latitude": 13.111568,
+      "longitude": 80.1841987
+    },
+    {
+      "id": "bus-korukkupet",
+      "name": "Korukkupet",
+      "category": "bus_terminus",
+      "latitude": 13.1193395,
+      "longitude": 80.2764774
+    },
+    {
+      "id": "bus-kovalam",
+      "name": "Kovalam",
+      "category": "bus_terminus",
+      "latitude": 12.7867676,
+      "longitude": 80.2498796
+    },
+    {
+      "id": "bus-koyambedu-market",
+      "name": "Koyambedu Market",
+      "category": "bus_terminus",
+      "latitude": 13.0692584,
+      "longitude": 80.2006259
+    },
+    {
+      "id": "bus-kundrathur",
+      "name": "Kundrathur",
+      "category": "bus_terminus",
+      "latitude": 12.9971064,
+      "longitude": 80.0960096
+    },
+    {
+      "id": "bus-m-k-b-nagar-bus-terminus",
+      "name": "M.K.B Nagar Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.1233811,
+      "longitude": 80.2654884
+    },
+    {
+      "id": "bus-madhavaram",
+      "name": "Madhavaram",
+      "category": "bus_terminus",
+      "latitude": 13.1522915,
+      "longitude": 80.2284198
+    },
+    {
+      "id": "bus-mamallapuram",
+      "name": "Mamallapuram",
+      "category": "bus_terminus",
+      "latitude": 12.6174366,
+      "longitude": 80.193898
+    },
+    {
+      "id": "bus-manali",
+      "name": "Manali",
+      "category": "bus_terminus",
+      "latitude": 13.1699784,
+      "longitude": 80.2571685
+    },
+    {
+      "id": "bus-mandavelli-bus-terminus",
+      "name": "Mandavelli Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0265789,
+      "longitude": 80.2656837
+    },
+    {
+      "id": "bus-medavakkam",
+      "name": "Medavakkam",
+      "category": "bus_terminus",
+      "latitude": 12.9195624,
+      "longitude": 80.182246
+    },
+    {
+      "id": "bus-minjur-bus-terminus",
+      "name": "Minjur Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.2820421,
+      "longitude": 80.2537016
+    },
+    {
+      "id": "bus-mmbt",
+      "name": "Mmbt",
+      "category": "bus_terminus",
+      "latitude": 13.145101,
+      "longitude": 80.2212728
+    },
+    {
+      "id": "bus-mmda-bus-terminus",
+      "name": "Mmda Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.062519,
+      "longitude": 80.2153618
+    },
+    {
+      "id": "bus-moggapair-east-bus-terminus",
+      "name": "Moggapair East Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0803925,
+      "longitude": 80.1807258
+    },
+    {
+      "id": "bus-moggapair-west-bus-terminus",
+      "name": "Moggapair West Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.082195,
+      "longitude": 80.1704124
+    },
+    {
+      "id": "bus-ngo-colony-bus-terminus",
+      "name": "Ngo Colony Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 12.9946056,
+      "longitude": 80.2068274
+    },
+    {
+      "id": "bus-pallavaram",
+      "name": "Pallavaram",
+      "category": "bus_terminus",
+      "latitude": 12.9693009,
+      "longitude": 80.1502606
+    },
+    {
+      "id": "bus-pattabiram",
+      "name": "Pattabiram",
+      "category": "bus_terminus",
+      "latitude": 13.1228628,
+      "longitude": 80.0611338
+    },
+    {
+      "id": "bus-perambur-bus-terminus",
+      "name": "Perambur Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.108432,
+      "longitude": 80.2482751
+    },
+    {
+      "id": "bus-periyapalayam",
+      "name": "Periyapalayam",
+      "category": "bus_terminus",
+      "latitude": 13.308125,
+      "longitude": 80.0462403
+    },
+    {
+      "id": "bus-periyar-nagar-bus-terminus",
+      "name": "Periyar Nagar Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.1162592,
+      "longitude": 80.2240579
+    },
+    {
+      "id": "bus-perumbakkam",
+      "name": "Perumbakkam",
+      "category": "bus_terminus",
+      "latitude": 12.8866915,
+      "longitude": 80.2096968
+    },
+    {
+      "id": "bus-poonamalle",
+      "name": "Poonamalle",
+      "category": "bus_terminus",
+      "latitude": 13.0511542,
+      "longitude": 80.0949486
+    },
+    {
+      "id": "bus-pozhichalur",
+      "name": "Pozhichalur",
+      "category": "bus_terminus",
+      "latitude": 12.9896999,
+      "longitude": 80.144045
+    },
+    {
+      "id": "bus-pudur",
+      "name": "Pudur",
+      "category": "bus_terminus",
+      "latitude": 13.1303291,
+      "longitude": 80.1586553
+    },
+    {
+      "id": "bus-red-hills",
+      "name": "Red Hills",
+      "category": "bus_terminus",
+      "latitude": 13.1928898,
+      "longitude": 80.1839853
+    },
+    {
+      "id": "bus-saidapet",
+      "name": "Saidapet",
+      "category": "bus_terminus",
+      "latitude": 13.0234309,
+      "longitude": 80.2277136
+    },
+    {
+      "id": "bus-saidapet-west",
+      "name": "Saidapet West",
+      "category": "bus_terminus",
+      "latitude": 13.0242527,
+      "longitude": 80.2129505
+    },
+    {
+      "id": "bus-semmanchery-bus-terminus",
+      "name": "Semmanchery Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 12.874648,
+      "longitude": 80.2097567
+    },
+    {
+      "id": "bus-siruseri-it-park",
+      "name": "Siruseri It Park",
+      "category": "bus_terminus",
+      "latitude": 12.8226308,
+      "longitude": 80.2194928
+    },
+    {
+      "id": "bus-sriperumbudur",
+      "name": "Sriperumbudur",
+      "category": "bus_terminus",
+      "latitude": 12.966497,
+      "longitude": 79.9450576
+    },
+    {
+      "id": "bus-t-nagar-bus-terminus",
+      "name": "T Nagar Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0345217,
+      "longitude": 80.2300712
+    },
+    {
+      "id": "bus-t-v-k-nagar-bus-terminus",
+      "name": "T.V.K Nagar Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.1198946,
+      "longitude": 80.2326024
+    },
+    {
+      "id": "bus-tambaram-bus-terminus",
+      "name": "Tambaram Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 12.9287065,
+      "longitude": 80.1196748
+    },
+    {
+      "id": "bus-tambaram-sanatorium",
+      "name": "Tambaram Sanatorium",
+      "category": "bus_terminus",
+      "latitude": 12.9371449,
+      "longitude": 80.1272739
+    },
+    {
+      "id": "bus-thirunindravur",
+      "name": "Thirunindravur",
+      "category": "bus_terminus",
+      "latitude": 13.1247826,
+      "longitude": 80.0324611
+    },
+    {
+      "id": "bus-thiruporur",
+      "name": "Thiruporur",
+      "category": "bus_terminus",
+      "latitude": 12.722075,
+      "longitude": 80.187682
+    },
+    {
+      "id": "bus-thiruvallur",
+      "name": "Thiruvallur",
+      "category": "bus_terminus",
+      "latitude": 13.1403947,
+      "longitude": 79.9083002
+    },
+    {
+      "id": "bus-thiruvanmiyur-bus-terminus",
+      "name": "Thiruvanmiyur Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 12.9868188,
+      "longitude": 80.2592472
+    },
+    {
+      "id": "bus-thiruverkadu-bus-terminus",
+      "name": "Thiruverkadu Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0695774,
+      "longitude": 80.1240184
+    },
+    {
+      "id": "bus-thiruvottiyur-bus-terminus",
+      "name": "Thiruvottiyur Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.1754409,
+      "longitude": 80.3061506
+    },
+    {
+      "id": "bus-toll-gate-bus-terminus",
+      "name": "Toll Gate Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.1435104,
+      "longitude": 80.2968962
+    },
+    {
+      "id": "bus-vadapalani-bus-terminus",
+      "name": "Vadapalani Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.0492211,
+      "longitude": 80.2070977
+    },
+    {
+      "id": "bus-vallalar-nagar-terminus-mint",
+      "name": "Vallalar Nagar Terminus (Mint)",
+      "category": "bus_terminus",
+      "latitude": 13.1059573,
+      "longitude": 80.2802953
+    },
+    {
+      "id": "bus-vandalur-zoo",
+      "name": "Vandalur Zoo",
+      "category": "bus_terminus",
+      "latitude": 12.8801448,
+      "longitude": 80.0802742
+    },
+    {
+      "id": "bus-velachery",
+      "name": "Velachery",
+      "category": "bus_terminus",
+      "latitude": 12.9758772,
+      "longitude": 80.2209493
+    },
+    {
+      "id": "bus-villivakkam-bus-terminus",
+      "name": "Villivakkam Bus Terminus",
+      "category": "bus_terminus",
+      "latitude": 13.1052141,
+      "longitude": 80.208397
+    },
+    {
+      "id": "bus-vivekananda-house",
+      "name": "Vivekananda House",
+      "category": "bus_terminus",
+      "latitude": 13.051202,
+      "longitude": 80.2778329
+    },
+    {
+      "id": "metro-ag-dms",
+      "name": "Ag-Dms",
+      "category": "metro_station",
+      "latitude": 13.0446825,
+      "longitude": 80.2480329
+    },
+    {
+      "id": "metro-airport",
+      "name": "Airport",
+      "category": "metro_station",
+      "latitude": 12.9809762,
+      "longitude": 80.1642541
+    },
+    {
+      "id": "metro-anna-nagar-east",
+      "name": "Anna Nagar East",
+      "category": "metro_station",
+      "latitude": 13.084548,
+      "longitude": 80.2195665
+    },
+    {
+      "id": "metro-anna-nagar-tower",
+      "name": "Anna Nagar Tower",
+      "category": "metro_station",
+      "latitude": 13.0849469,
+      "longitude": 80.2089037
+    },
+    {
+      "id": "metro-arignar-anna-alandur",
+      "name": "Arignar Anna Alandur",
+      "category": "metro_station",
+      "latitude": 13.0041956,
+      "longitude": 80.201573
+    },
+    {
+      "id": "metro-arumbakkam",
+      "name": "Arumbakkam",
+      "category": "metro_station",
+      "latitude": 13.0620056,
+      "longitude": 80.2117028
+    },
+    {
+      "id": "metro-ashok-nagar",
+      "name": "Ashok Nagar",
+      "category": "metro_station",
+      "latitude": 13.0354927,
+      "longitude": 80.2110575
+    },
+    {
+      "id": "metro-egmore-metro",
+      "name": "Egmore Metro",
+      "category": "metro_station",
+      "latitude": 13.0789665,
+      "longitude": 80.2609528
+    },
+    {
+      "id": "metro-ekkattuthangal",
+      "name": "Ekkattuthangal",
+      "category": "metro_station",
+      "latitude": 13.0165209,
+      "longitude": 80.2052817
+    },
+    {
+      "id": "metro-government-estate",
+      "name": "Government Estate",
+      "category": "metro_station",
+      "latitude": 13.0695606,
+      "longitude": 80.2728393
+    },
+    {
+      "id": "metro-guindy-metro",
+      "name": "Guindy Metro",
+      "category": "metro_station",
+      "latitude": 13.0091658,
+      "longitude": 80.2130302
+    },
+    {
+      "id": "metro-high-court",
+      "name": "High Court",
+      "category": "metro_station",
+      "latitude": 13.0870682,
+      "longitude": 80.2850252
+    },
+    {
+      "id": "metro-kaladipet-metro",
+      "name": "Kaladipet Metro",
+      "category": "metro_station",
+      "latitude": 13.1510453,
+      "longitude": 80.299412
+    },
+    {
+      "id": "metro-kilpauk",
+      "name": "Kilpauk",
+      "category": "metro_station",
+      "latitude": 13.0774583,
+      "longitude": 80.2426278
+    },
+    {
+      "id": "metro-koyambedu",
+      "name": "Koyambedu",
+      "category": "metro_station",
+      "latitude": 13.0733611,
+      "longitude": 80.194875
+    },
+    {
+      "id": "metro-lic",
+      "name": "Lic",
+      "category": "metro_station",
+      "latitude": 13.064555,
+      "longitude": 80.2661009
+    },
+    {
+      "id": "metro-little-mount",
+      "name": "Little Mount",
+      "category": "metro_station",
+      "latitude": 13.0144841,
+      "longitude": 80.2239766
+    },
+    {
+      "id": "metro-mannadi",
+      "name": "Mannadi",
+      "category": "metro_station",
+      "latitude": 13.0954195,
+      "longitude": 80.2860945
+    },
+    {
+      "id": "metro-meenambakkam-metro",
+      "name": "Meenambakkam Metro",
+      "category": "metro_station",
+      "latitude": 12.9877509,
+      "longitude": 80.1765866
+    },
+    {
+      "id": "metro-nandanam",
+      "name": "Nandanam",
+      "category": "metro_station",
+      "latitude": 13.0316511,
+      "longitude": 80.2410428
+    },
+    {
+      "id": "metro-nanganallur-road",
+      "name": "Nanganallur Road",
+      "category": "metro_station",
+      "latitude": 12.9999661,
+      "longitude": 80.1941563
+    },
+    {
+      "id": "metro-nehru-park",
+      "name": "Nehru Park",
+      "category": "metro_station",
+      "latitude": 13.0786115,
+      "longitude": 80.2500877
+    },
+    {
+      "id": "metro-new-washermenpet-metro",
+      "name": "New Washermenpet Metro",
+      "category": "metro_station",
+      "latitude": 13.1347734,
+      "longitude": 80.292955
+    },
+    {
+      "id": "metro-pachaiyappa",
+      "name": "Pachaiyappa",
+      "category": "metro_station",
+      "latitude": 13.0753872,
+      "longitude": 80.2333848
+    },
+    {
+      "id": "metro-puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
+      "name": "Puratchi Thalaivar Dr.M.G.Ramachandran Central Metro",
+      "category": "metro_station",
+      "latitude": 13.0814278,
+      "longitude": 80.2729076
+    },
+    {
+      "id": "metro-puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro",
+      "name": "Puratchi Thalaivi Dr.J.Jayalalithaa CMBT Metro",
+      "category": "metro_station",
+      "latitude": 13.0684827,
+      "longitude": 80.2039459
+    },
+    {
+      "id": "metro-saidapet-metro",
+      "name": "Saidapet Metro",
+      "category": "metro_station",
+      "latitude": 13.0235992,
+      "longitude": 80.2283601
+    },
+    {
+      "id": "metro-shenoy-nagar",
+      "name": "Shenoy Nagar",
+      "category": "metro_station",
+      "latitude": 13.0783722,
+      "longitude": 80.2251167
+    },
+    {
+      "id": "metro-st-thomas-mount",
+      "name": "St.Thomas Mount",
+      "category": "metro_station",
+      "latitude": 12.9947486,
+      "longitude": 80.1975543
+    },
+    {
+      "id": "metro-teynampet",
+      "name": "Teynampet",
+      "category": "metro_station",
+      "latitude": 13.0371184,
+      "longitude": 80.2464609
+    },
+    {
+      "id": "metro-thirumangalam",
+      "name": "Thirumangalam",
+      "category": "metro_station",
+      "latitude": 13.0852057,
+      "longitude": 80.201539
+    },
+    {
+      "id": "metro-thiruvotriyur-metro",
+      "name": "Thiruvotriyur Metro",
+      "category": "metro_station",
+      "latitude": 13.1722675,
+      "longitude": 80.3053605
+    },
+    {
+      "id": "metro-thiyagaraya-college-metro",
+      "name": "Thiyagaraya College Metro",
+      "category": "metro_station",
+      "latitude": 13.1165979,
+      "longitude": 80.2851276
+    },
+    {
+      "id": "metro-thousand-lights",
+      "name": "Thousand Lights",
+      "category": "metro_station",
+      "latitude": 13.0583557,
+      "longitude": 80.2585174
+    },
+    {
+      "id": "metro-tollgate-metro",
+      "name": "Tollgate Metro",
+      "category": "metro_station",
+      "latitude": 13.1435189,
+      "longitude": 80.2963194
+    },
+    {
+      "id": "metro-tondiarpet-metro",
+      "name": "Tondiarpet Metro",
+      "category": "metro_station",
+      "latitude": 13.1238112,
+      "longitude": 80.288199
+    },
+    {
+      "id": "metro-vadapalani",
+      "name": "Vadapalani",
+      "category": "metro_station",
+      "latitude": 13.0506972,
+      "longitude": 80.212075
+    },
+    {
+      "id": "metro-washermenpet-metro",
+      "name": "Washermenpet Metro",
+      "category": "metro_station",
+      "latitude": 13.1072182,
+      "longitude": 80.2807872
+    },
+    {
+      "id": "metro-wimco-nagar-metro",
+      "name": "Wimco Nagar Metro",
+      "category": "metro_station",
+      "latitude": 13.1789919,
+      "longitude": 80.3071594
+    },
+    {
+      "id": "rail-ambattur",
+      "name": "Ambattur",
+      "category": "suburban_station",
+      "latitude": 13.114245,
+      "longitude": 80.153109
+    },
+    {
+      "id": "rail-annanur",
+      "name": "Annanur",
+      "category": "suburban_station",
+      "latitude": 13.116517,
+      "longitude": 80.127255
+    },
+    {
+      "id": "rail-anuppambattu",
+      "name": "Anuppambattu",
+      "category": "suburban_station",
+      "latitude": 13.304406,
+      "longitude": 80.230971
+    },
+    {
+      "id": "rail-arakkonam-jn",
+      "name": "Arakkonam JN.",
+      "category": "suburban_station",
+      "latitude": 13.081652,
+      "longitude": 79.669611
+    },
+    {
+      "id": "rail-arambakam",
+      "name": "Arambakam",
+      "category": "suburban_station",
+      "latitude": 13.5331367,
+      "longitude": 80.0745843
+    },
+    {
+      "id": "rail-attipattu-pudu-nagar",
+      "name": "Attipattu Pudu Nagar",
+      "category": "suburban_station",
+      "latitude": 13.2492,
+      "longitude": 80.300049
+    },
+    {
+      "id": "rail-attippattu",
+      "name": "Attippattu",
+      "category": "suburban_station",
+      "latitude": 13.261438,
+      "longitude": 80.289153
+    },
+    {
+      "id": "rail-avadi",
+      "name": "Avadi",
+      "category": "suburban_station",
+      "latitude": 13.118147,
+      "longitude": 80.101785
+    },
+    {
+      "id": "rail-basin-bridge-jn",
+      "name": "Basin Bridge JN.",
+      "category": "suburban_station",
+      "latitude": 13.102079,
+      "longitude": 80.271368
+    },
+    {
+      "id": "rail-chengalpattu-jn",
+      "name": "Chengalpattu JN.",
+      "category": "suburban_station",
+      "latitude": 12.69411,
+      "longitude": 79.98084
+    },
+    {
+      "id": "rail-chennai-beach-jn",
+      "name": "Chennai Beach JN.",
+      "category": "suburban_station",
+      "latitude": 13.0922956,
+      "longitude": 80.2918927
+    },
+    {
+      "id": "rail-chennai-central-suburban",
+      "name": "Chennai Central Suburban",
+      "category": "suburban_station",
+      "latitude": 13.083037,
+      "longitude": 80.27479
+    },
+    {
+      "id": "rail-chennai-chetpat",
+      "name": "Chennai Chetpat",
+      "category": "suburban_station",
+      "latitude": 13.0744165,
+      "longitude": 80.2436481
+    },
+    {
+      "id": "rail-chennai-egmore",
+      "name": "Chennai Egmore",
+      "category": "suburban_station",
+      "latitude": 13.0782517,
+      "longitude": 80.2610333
+    },
+    {
+      "id": "rail-chennai-fort",
+      "name": "Chennai Fort",
+      "category": "suburban_station",
+      "latitude": 13.0826922,
+      "longitude": 80.2821784
+    },
+    {
+      "id": "rail-chennai-park",
+      "name": "Chennai Park",
+      "category": "suburban_station",
+      "latitude": 13.0807341,
+      "longitude": 80.2728903
+    },
+    {
+      "id": "rail-chennai-park-town",
+      "name": "Chennai Park Town",
+      "category": "suburban_station",
+      "latitude": 13.079588,
+      "longitude": 80.277502
+    },
+    {
+      "id": "rail-chepauk",
+      "name": "Chepauk",
+      "category": "suburban_station",
+      "latitude": 13.062746,
+      "longitude": 80.280611
+    },
+    {
+      "id": "rail-chintadaripet",
+      "name": "Chintadaripet",
+      "category": "suburban_station",
+      "latitude": 13.074676,
+      "longitude": 80.273723
+    },
+    {
+      "id": "rail-chromepet",
+      "name": "Chromepet",
+      "category": "suburban_station",
+      "latitude": 12.951276,
+      "longitude": 80.1408471
+    },
+    {
+      "id": "rail-egattur",
+      "name": "Egattur",
+      "category": "suburban_station",
+      "latitude": 13.107082,
+      "longitude": 79.884682
+    },
+    {
+      "id": "rail-elavur",
+      "name": "Elavur",
+      "category": "suburban_station",
+      "latitude": 13.458203,
+      "longitude": 80.1156575
+    },
+    {
+      "id": "rail-ennore",
+      "name": "Ennore",
+      "category": "suburban_station",
+      "latitude": 13.217914,
+      "longitude": 80.321748
+    },
+    {
+      "id": "rail-greenways-road",
+      "name": "Greenways Road",
+      "category": "suburban_station",
+      "latitude": 13.021594,
+      "longitude": 80.252547
+    },
+    {
+      "id": "rail-guduvancheri",
+      "name": "Guduvancheri",
+      "category": "suburban_station",
+      "latitude": 12.844676,
+      "longitude": 80.0568
+    },
+    {
+      "id": "rail-guindy",
+      "name": "Guindy",
+      "category": "suburban_station",
+      "latitude": 13.0082834,
+      "longitude": 80.2124961
+    },
+    {
+      "id": "rail-gummidipundi",
+      "name": "Gummidipundi",
+      "category": "suburban_station",
+      "latitude": 13.409115,
+      "longitude": 80.123624
+    },
+    {
+      "id": "rail-hindu-college",
+      "name": "Hindu College",
+      "category": "suburban_station",
+      "latitude": 13.118654,
+      "longitude": 80.074979
+    },
+    {
+      "id": "rail-indra-nagar",
+      "name": "Indra Nagar",
+      "category": "suburban_station",
+      "latitude": 12.997514,
+      "longitude": 80.249234
+    },
+    {
+      "id": "rail-kadambattur",
+      "name": "Kadambattur",
+      "category": "suburban_station",
+      "latitude": 13.100054,
+      "longitude": 79.863106
+    },
+    {
+      "id": "rail-kanchipuram",
+      "name": "Kanchipuram",
+      "category": "suburban_station",
+      "latitude": 12.8482869,
+      "longitude": 79.7049824
+    },
+    {
+      "id": "rail-kanchipuram-east",
+      "name": "Kanchipuram East",
+      "category": "suburban_station",
+      "latitude": 12.8405755,
+      "longitude": 79.7122281
+    },
+    {
+      "id": "rail-kasturba-nagar",
+      "name": "Kasturba Nagar",
+      "category": "suburban_station",
+      "latitude": 13.006361,
+      "longitude": 80.247697
+    },
+    {
+      "id": "rail-kathivakkam",
+      "name": "Kathivakkam",
+      "category": "suburban_station",
+      "latitude": 13.204528,
+      "longitude": 80.316968
+    },
+    {
+      "id": "rail-kattangulatur",
+      "name": "Kattangulatur",
+      "category": "suburban_station",
+      "latitude": 12.80593,
+      "longitude": 80.026348
+    },
+    {
+      "id": "rail-kavaraippettai",
+      "name": "Kavaraippettai",
+      "category": "suburban_station",
+      "latitude": 13.36353,
+      "longitude": 80.147383
+    },
+    {
+      "id": "rail-kodambakkam",
+      "name": "Kodambakkam",
+      "category": "suburban_station",
+      "latitude": 13.052788,
+      "longitude": 80.2308973
+    },
+    {
+      "id": "rail-korattur",
+      "name": "Korattur",
+      "category": "suburban_station",
+      "latitude": 13.11326,
+      "longitude": 80.184464
+    },
+    {
+      "id": "rail-korukkupet",
+      "name": "Korukkupet",
+      "category": "suburban_station",
+      "latitude": 13.120671,
+      "longitude": 80.278682
+    },
+    {
+      "id": "rail-kotturpuram",
+      "name": "Kotturpuram",
+      "category": "suburban_station",
+      "latitude": 13.014867,
+      "longitude": 80.248379
+    },
+    {
+      "id": "rail-light-house",
+      "name": "Light House",
+      "category": "suburban_station",
+      "latitude": 13.045875,
+      "longitude": 80.276974
+    },
+    {
+      "id": "rail-mambalam",
+      "name": "Mambalam",
+      "category": "suburban_station",
+      "latitude": 13.0415025,
+      "longitude": 80.2287707
+    },
+    {
+      "id": "rail-manavur",
+      "name": "Manavur",
+      "category": "suburban_station",
+      "latitude": 13.096637,
+      "longitude": 79.801608
+    },
+    {
+      "id": "rail-mandaveli",
+      "name": "Mandaveli",
+      "category": "suburban_station",
+      "latitude": 13.028885,
+      "longitude": 80.260853
+    },
+    {
+      "id": "rail-maraimalai-nagar-kamarajar",
+      "name": "Maraimalai Nagar Kamarajar",
+      "category": "suburban_station",
+      "latitude": 12.79676,
+      "longitude": 80.020001
+    },
+    {
+      "id": "rail-minambakkam",
+      "name": "Minambakkam",
+      "category": "suburban_station",
+      "latitude": 12.9846975,
+      "longitude": 80.1752485
+    },
+    {
+      "id": "rail-minjur",
+      "name": "Minjur",
+      "category": "suburban_station",
+      "latitude": 13.282025,
+      "longitude": 80.259837
+    },
+    {
+      "id": "rail-mosur",
+      "name": "Mosur",
+      "category": "suburban_station",
+      "latitude": 13.085278,
+      "longitude": 79.712473
+    },
+    {
+      "id": "rail-mundakakanni-amman-koil",
+      "name": "Mundakakanni Amman Koil",
+      "category": "suburban_station",
+      "latitude": 13.041182,
+      "longitude": 80.270386
+    },
+    {
+      "id": "rail-nandiyampakkam",
+      "name": "Nandiyampakkam",
+      "category": "suburban_station",
+      "latitude": 13.2687,
+      "longitude": 80.276032
+    },
+    {
+      "id": "rail-nathapettai",
+      "name": "Nathapettai",
+      "category": "suburban_station",
+      "latitude": 12.8236472,
+      "longitude": 79.7560123
+    },
+    {
+      "id": "rail-nemilicherry-halt",
+      "name": "Nemilicherry Halt",
+      "category": "suburban_station",
+      "latitude": 13.12147,
+      "longitude": 80.045185
+    },
+    {
+      "id": "rail-nungambakkam",
+      "name": "Nungambakkam",
+      "category": "suburban_station",
+      "latitude": 13.0652776,
+      "longitude": 80.2328528
+    },
+    {
+      "id": "rail-palavantangal",
+      "name": "Palavantangal",
+      "category": "suburban_station",
+      "latitude": 12.9910442,
+      "longitude": 80.1891505
+    },
+    {
+      "id": "rail-palayasivaram",
+      "name": "Palayasivaram",
+      "category": "suburban_station",
+      "latitude": 12.77649,
+      "longitude": 79.8776107
+    },
+    {
+      "id": "rail-pallavaram",
+      "name": "Pallavaram",
+      "category": "suburban_station",
+      "latitude": 12.9681873,
+      "longitude": 80.1526042
+    },
+    {
+      "id": "rail-palur",
+      "name": "Palur",
+      "category": "suburban_station",
+      "latitude": 12.7663799,
+      "longitude": 79.9066831
+    },
+    {
+      "id": "rail-paranur",
+      "name": "Paranur",
+      "category": "suburban_station",
+      "latitude": 12.729959,
+      "longitude": 79.983702
+    },
+    {
+      "id": "rail-pattabiram",
+      "name": "Pattabiram",
+      "category": "suburban_station",
+      "latitude": 13.118774,
+      "longitude": 80.065237
+    },
+    {
+      "id": "rail-pattabiram-m-siding",
+      "name": "Pattabiram M Siding",
+      "category": "suburban_station",
+      "latitude": 13.136719,
+      "longitude": 80.059878
+    },
+    {
+      "id": "rail-pattaravakkam",
+      "name": "Pattaravakkam",
+      "category": "suburban_station",
+      "latitude": 13.114582,
+      "longitude": 80.166268
+    },
+    {
+      "id": "rail-perambur",
+      "name": "Perambur",
+      "category": "suburban_station",
+      "latitude": 13.107617,
+      "longitude": 80.246783
+    },
+    {
+      "id": "rail-perambur-carriage-works",
+      "name": "Perambur Carriage Works",
+      "category": "suburban_station",
+      "latitude": 13.107366,
+      "longitude": 80.239047
+    },
+    {
+      "id": "rail-perambur-loco-works",
+      "name": "Perambur Loco Works",
+      "category": "suburban_station",
+      "latitude": 13.108325,
+      "longitude": 80.225518
+    },
+    {
+      "id": "rail-perungalattur",
+      "name": "Perungalattur",
+      "category": "suburban_station",
+      "latitude": 12.904692,
+      "longitude": 80.09451
+    },
+    {
+      "id": "rail-perungudi",
+      "name": "Perungudi",
+      "category": "suburban_station",
+      "latitude": 12.976039,
+      "longitude": 80.232135
+    },
+    {
+      "id": "rail-ponneri",
+      "name": "Ponneri",
+      "category": "suburban_station",
+      "latitude": 13.332605,
+      "longitude": 80.19901
+    },
+    {
+      "id": "rail-potheri",
+      "name": "Potheri",
+      "category": "suburban_station",
+      "latitude": 12.820981,
+      "longitude": 80.036813
+    },
+    {
+      "id": "rail-puliyamangalam",
+      "name": "Puliyamangalam",
+      "category": "suburban_station",
+      "latitude": 13.083282,
+      "longitude": 79.685887
+    },
+    {
+      "id": "rail-putlur-halt",
+      "name": "Putlur Halt",
+      "category": "suburban_station",
+      "latitude": 13.123063,
+      "longitude": 79.936792
+    },
+    {
+      "id": "rail-reddipalayam",
+      "name": "Reddipalayam",
+      "category": "suburban_station",
+      "latitude": 12.7285016,
+      "longitude": 79.9530714
+    },
+    {
+      "id": "rail-royapuram",
+      "name": "Royapuram",
+      "category": "suburban_station",
+      "latitude": 13.104138,
+      "longitude": 80.293418
+    },
+    {
+      "id": "rail-saidapet",
+      "name": "Saidapet",
+      "category": "suburban_station",
+      "latitude": 13.0238161,
+      "longitude": 80.2239862
+    },
+    {
+      "id": "rail-senji-panambakkam",
+      "name": "Senji Panambakkam",
+      "category": "suburban_station",
+      "latitude": 13.094652,
+      "longitude": 79.834986
+    },
+    {
+      "id": "rail-sevvapet-road",
+      "name": "Sevvapet Road",
+      "category": "suburban_station",
+      "latitude": 13.125012,
+      "longitude": 79.966714
+    },
+    {
+      "id": "rail-singaperumalkoil",
+      "name": "Singaperumalkoil",
+      "category": "suburban_station",
+      "latitude": 12.761822,
+      "longitude": 80.000699
+    },
+    {
+      "id": "rail-st-thomas-mount",
+      "name": "St. Thomas Mount",
+      "category": "suburban_station",
+      "latitude": 12.994848,
+      "longitude": 80.1988242
+    },
+    {
+      "id": "rail-takkolam",
+      "name": "Takkolam",
+      "category": "suburban_station",
+      "latitude": 13.0242814,
+      "longitude": 79.6773306
+    },
+    {
+      "id": "rail-tambaram",
+      "name": "Tambaram",
+      "category": "suburban_station",
+      "latitude": 12.9253451,
+      "longitude": 80.1189192
+    },
+    {
+      "id": "rail-tambaram-sanatorium",
+      "name": "Tambaram Sanatorium",
+      "category": "suburban_station",
+      "latitude": 12.937949,
+      "longitude": 80.1315107
+    },
+    {
+      "id": "rail-taramani",
+      "name": "Taramani",
+      "category": "suburban_station",
+      "latitude": 12.978686,
+      "longitude": 80.24167
+    },
+    {
+      "id": "rail-thirumayilai",
+      "name": "Thirumayilai",
+      "category": "suburban_station",
+      "latitude": 13.03541,
+      "longitude": 80.267473
+    },
+    {
+      "id": "rail-tirumalpur",
+      "name": "Tirumalpur",
+      "category": "suburban_station",
+      "latitude": 12.956244,
+      "longitude": 79.673775
+    },
+    {
+      "id": "rail-tirumullaivayil",
+      "name": "Tirumullaivayil",
+      "category": "suburban_station",
+      "latitude": 13.115509,
+      "longitude": 80.136654
+    },
+    {
+      "id": "rail-tiruninravur",
+      "name": "Tiruninravur",
+      "category": "suburban_station",
+      "latitude": 13.124014,
+      "longitude": 80.026914
+    },
+    {
+      "id": "rail-tirusulam",
+      "name": "Tirusulam",
+      "category": "suburban_station",
+      "latitude": 12.9800997,
+      "longitude": 80.1654075
+    },
+    {
+      "id": "rail-tiruvalangadu",
+      "name": "Tiruvalangadu",
+      "category": "suburban_station",
+      "latitude": 13.090378,
+      "longitude": 79.763489
+    },
+    {
+      "id": "rail-tiruvallikeni",
+      "name": "Tiruvallikeni",
+      "category": "suburban_station",
+      "latitude": 13.055982,
+      "longitude": 80.28049
+    },
+    {
+      "id": "rail-tiruvallur",
+      "name": "Tiruvallur",
+      "category": "suburban_station",
+      "latitude": 13.117196,
+      "longitude": 79.91586
+    },
+    {
+      "id": "rail-tiruvanmiyur",
+      "name": "Tiruvanmiyur",
+      "category": "suburban_station",
+      "latitude": 12.990599,
+      "longitude": 80.251031
+    },
+    {
+      "id": "rail-tiruvottiyur",
+      "name": "Tiruvottiyur",
+      "category": "suburban_station",
+      "latitude": 13.159532,
+      "longitude": 80.296353
+    },
+    {
+      "id": "rail-tondiarpet",
+      "name": "Tondiarpet",
+      "category": "suburban_station",
+      "latitude": 13.126956,
+      "longitude": 80.281541
+    },
+    {
+      "id": "rail-urappakkam",
+      "name": "Urappakkam",
+      "category": "suburban_station",
+      "latitude": 12.867348,
+      "longitude": 80.071818
+    },
+    {
+      "id": "rail-vandalur",
+      "name": "Vandalur",
+      "category": "suburban_station",
+      "latitude": 12.890356,
+      "longitude": 80.083928
+    },
+    {
+      "id": "rail-velachery",
+      "name": "Velachery",
+      "category": "suburban_station",
+      "latitude": 12.967256,
+      "longitude": 80.22054
+    },
+    {
+      "id": "rail-veppampattu",
+      "name": "Veppampattu",
+      "category": "suburban_station",
+      "latitude": 13.123821,
+      "longitude": 79.998751
+    },
+    {
+      "id": "rail-villivakkam",
+      "name": "Villivakkam",
+      "category": "suburban_station",
+      "latitude": 13.110224,
+      "longitude": 80.209119
+    },
+    {
+      "id": "rail-villiyambakkam",
+      "name": "Villiyambakkam",
+      "category": "suburban_station",
+      "latitude": 12.7521229,
+      "longitude": 79.9336871
+    },
+    {
+      "id": "rail-voc-nagar",
+      "name": "Voc Nagar",
+      "category": "suburban_station",
+      "latitude": 13.140246,
+      "longitude": 80.287614
+    },
+    {
+      "id": "rail-vyasarpadi-jeeva",
+      "name": "Vyasarpadi Jeeva",
+      "category": "suburban_station",
+      "latitude": 13.108968,
+      "longitude": 80.258128
+    },
+    {
+      "id": "rail-walajabad",
+      "name": "Walajabad",
+      "category": "suburban_station",
+      "latitude": 12.7970633,
+      "longitude": 79.8180862
+    },
+    {
+      "id": "rail-washermanpet",
+      "name": "Washermanpet",
+      "category": "suburban_station",
+      "latitude": 13.108552,
+      "longitude": 80.283183
+    },
+    {
+      "id": "rail-wimco-nagar",
+      "name": "Wimco Nagar",
+      "category": "suburban_station",
+      "latitude": 13.181026,
+      "longitude": 80.306223
+    }
+  ]
+}

@@ -2,7 +2,6 @@ import React from 'react';
 import { JourneyRoute } from '../../types';
 import { 
   Clock, 
-  IndianRupee, 
   Footprints, 
   ArrowRight, 
   CheckCircle2, 
@@ -16,6 +15,7 @@ import {
 } from 'lucide-react';
 import { Badge } from '../ui/Badge';
 import { Button } from '../ui/Button';
+import { fareLabel } from '../../utils/fare';
 
 interface RouteCardProps {
   route: JourneyRoute;
@@ -23,6 +23,7 @@ interface RouteCardProps {
   onSelect: () => void;
   onOpenInspector: () => void;
   onViewDetails?: () => void;
+  confirmationRequired?: boolean;
 }
 
 export const RouteCard: React.FC<RouteCardProps> = ({
@@ -30,7 +31,8 @@ export const RouteCard: React.FC<RouteCardProps> = ({
   isSelected,
   onSelect,
   onOpenInspector,
-  onViewDetails
+  onViewDetails,
+  confirmationRequired = false,
 }) => {
   const isAffected = route.affectedByDisruption;
   const accessibilityStatus = route.accessibilityStatus
@@ -59,6 +61,7 @@ export const RouteCard: React.FC<RouteCardProps> = ({
       {/* Top badges & label */}
       <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
         <div className="flex items-center gap-1.5 flex-wrap">
+          {confirmationRequired && <Badge variant="disruption">Confirmation needed</Badge>}
           {route.categoryTags.includes('fastest') && (
             <Badge variant="accessible">Fastest</Badge>
           )}
@@ -80,18 +83,19 @@ export const RouteCard: React.FC<RouteCardProps> = ({
         </span>
       </div>
 
+      <p className="mb-2 text-xs font-semibold text-ink">{route.label}</p>
+
       {/* Main duration and fare */}
       <div className="flex items-baseline justify-between mb-3">
         <div className="flex items-baseline gap-2">
           <span className="font-heading font-extrabold text-2xl text-ink">
-            {route.totalDurationMinutes}
+            {Math.round(route.totalDurationMinutes)}
           </span>
           <span className="text-xs font-medium text-ink-muted">min</span>
         </div>
 
-        <div className="flex items-center gap-1 font-heading font-bold text-lg text-ink">
-          <IndianRupee className="w-4 h-4 text-ink-muted" />
-          <span>{route.totalFareINR}</span>
+        <div className="flex items-center gap-1 font-heading font-bold text-base text-right text-ink">
+          <span>{fareLabel(route.totalFareINR, route.fareStatus)}</span>
         </div>
       </div>
 
@@ -99,7 +103,7 @@ export const RouteCard: React.FC<RouteCardProps> = ({
       <div className="grid grid-cols-2 gap-2 py-2.5 px-3 bg-slate-50/80 rounded-lg text-xs mb-3 border border-slate-100">
         <div className="flex items-center gap-1.5 text-ink-secondary">
           <Footprints className="w-3.5 h-3.5 text-accent" />
-          <span>Walk: <strong>{route.walkingDistanceMeters} m</strong></span>
+          <span>Walk: <strong>{Math.round(route.walkingDistanceMeters)} m</strong></span>
         </div>
         <div className="flex items-center gap-1.5 text-ink-secondary">
           <span className="font-bold text-slate-400">⇌</span>

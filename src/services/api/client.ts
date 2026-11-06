@@ -13,6 +13,10 @@ export interface RouteSearchResult {
   searchTimestamp: string;
   graphVersion: string;
   message?: string | null;
+  decision?: {
+    status: 'READY' | 'NEEDS_CONFIRMATION' | 'OPTIONS_ONLY';
+    missingFacts: Array<{ question: string; whyItMatters?: string; affectedRouteIds: string[] }>;
+  };
 }
 
 export interface ReplanResult {

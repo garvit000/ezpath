@@ -115,6 +115,7 @@ export const ProfileBuilder: React.FC = () => {
           </div>
           <input
             type="range"
+            aria-label="Maximum walking distance in metres"
             min="100"
             max="3000"
             step="50"
@@ -124,7 +125,6 @@ export const ProfileBuilder: React.FC = () => {
           />
           <div className="flex justify-between text-[10px] text-slate-400">
             <span>100 m</span>
-            <span>600 m (standard)</span>
             <span>3,000 m</span>
           </div>
         </div>
@@ -140,6 +140,7 @@ export const ProfileBuilder: React.FC = () => {
           </div>
           <input
             type="range"
+            aria-label="Maximum budget in rupees"
             min="20"
             max="150"
             step="5"

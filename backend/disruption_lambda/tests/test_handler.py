@@ -35,6 +35,14 @@ class FakeRepository:
         event["isActive"] = False
         return event
 
+    def record_simulation(self, scenario, readings):
+        self.simulation = (scenario, readings)
+        return {"facilityId": "rail-potheri", "scenario": scenario}
+
+    def record_confirmation(self, state, note, operator_id):
+        self.confirmation = (state, note, operator_id)
+        return {"facilityId": "rail-potheri", "state": state}
+
 
 def _post(route_key, payload, path_parameters=None):
     return {
@@ -67,6 +75,35 @@ def test_create_list_and_resolve_event():
     assert resolved_response["statusCode"] == 200
     assert json.loads(resolved_response["body"])["event"]["isActive"] is False
     assert json.loads(handle_event({"routeKey": "GET /v1/events/active"}, repository)["body"]) == []
+
+
+def test_operator_simulation_accepts_only_bounded_scenarios():
+    repository = FakeRepository()
+    response = handle_event(_post("POST /v1/telemetry/simulate", {
+        "facilityId": "rail-potheri", "scenario": "disagree",
+    }), repository)
+    assert response["statusCode"] == 201
+    assert repository.simulation[0] == "disagree"
+    assert len(repository.simulation[1]) == 2
+
+    rejected = handle_event(_post("POST /v1/telemetry/simulate", {
+        "facilityId": "rail-potheri", "scenario": "arbitrary",
+    }), repository)
+    assert rejected["statusCode"] == 400
+    assert repository.simulation[0] == "disagree"
+
+
+def test_real_world_confirmation_requires_operator_identity_and_acknowledgement():
+    repository = FakeRepository()
+    payload = {"facilityId": "rail-potheri", "state": "OPERATIONAL",
+               "note": "Confirmed with station staff", "verifiedFromRealWorld": True}
+    request = _post("POST /v1/telemetry/confirm", payload)
+    assert handle_event(request, repository)["statusCode"] == 400
+    request["requestContext"] = {"authorizer": {"jwt": {"claims": {"sub": "operator-1"}}}}
+    assert handle_event(request, repository)["statusCode"] == 201
+    assert repository.confirmation == ("OPERATIONAL", "Confirmed with station staff", "operator-1")
+    request["body"] = json.dumps({**payload, "verifiedFromRealWorld": False})
+    assert handle_event(request, repository)["statusCode"] == 400
 
 
 def test_rejects_invalid_event_without_writing():

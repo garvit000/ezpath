@@ -35,6 +35,14 @@ def ensure_graph_artifact(
     return str(destination)
 
 
+def transit_settings_from_environment() -> tuple[str, str | None, str | None]:
+    return (
+        os.environ.get("EZPATH_TRANSIT_PATH", "/tmp/ezpath/chennai-transit.json.gz"),
+        os.environ.get("EZPATH_GRAPH_BUCKET"),
+        os.environ.get("EZPATH_TRANSIT_KEY"),
+    )
+
+
 def graph_settings_from_environment() -> tuple[str, str | None, str | None]:
     return (
         os.environ.get("EZPATH_GRAPH_PATH", "/tmp/ezpath/campus.graphml"),

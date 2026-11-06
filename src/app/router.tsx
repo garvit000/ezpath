@@ -8,6 +8,8 @@ import { SavedJourneys } from '../pages/SavedJourneys';
 import { OperatorDashboard } from '../pages/OperatorDashboard';
 import { NetworkStatus } from '../pages/NetworkStatus';
 import { Analytics } from '../pages/Analytics';
+import { OperatorCallback } from '../pages/OperatorCallback';
+import { CommunityReportPage } from '../pages/CommunityReportPage';
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +43,18 @@ export const router = createBrowserRouter([
         <SavedJourneys />
       </AppShell>
     ),
+  },
+  {
+    path: '/report',
+    element: (
+      <AppShell>
+        <CommunityReportPage />
+      </AppShell>
+    ),
+  },
+  {
+    path: '/operator/callback',
+    element: <OperatorCallback />,
   },
   {
     path: '/operator',

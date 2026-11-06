@@ -61,6 +61,7 @@ def test_openapi_uses_components_and_existing_external_schemas():
         "/v1/events",
         "/v1/events/active",
         "/v1/events/{eventId}/resolve",
+        "/v1/journeys",
         "/v1/routes",
     ]
     schemas = document["components"]["schemas"]

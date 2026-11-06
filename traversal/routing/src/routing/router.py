@@ -47,6 +47,23 @@ def _edge_minutes(data: dict, speed_mps: float) -> float:
     return _edge_length(data) / speed_mps / 60.0
 
 
+def _edge_points(geometry: Any) -> list[list[float]]:
+    """Read edge geometry from a shapely line or the WKT text stored in GraphML."""
+    if geometry is None:
+        return []
+    if hasattr(geometry, "coords"):
+        return [[float(x), float(y)] for x, y in geometry.coords]
+    text = str(geometry).strip()
+    if not text.upper().startswith("LINESTRING") or "(" not in text:
+        return []
+    points = []
+    for pair in text[text.index("(") + 1:text.rindex(")")].split(","):
+        values = pair.split()
+        if len(values) >= 2:
+            points.append([float(values[0]), float(values[1])])
+    return points
+
+
 def _dominates(a: Label, b: Label, eps: float = 1e-9) -> bool:
     no_worse = (a.time_min <= b.time_min + eps and a.walk_m <= b.walk_m + eps
                 and a.uncertainty <= b.uncertainty + eps)
@@ -124,10 +141,8 @@ def _reconstruct_and_validate(graph: nx.MultiDiGraph, label: Label,
                          ("wheelchair", "highway", "surface", "smoothness", "incline", "kerb", "width")
                          if get_tag(data, tag) != "unknown"},
         })
-        geom = data.get("geometry")
-        if geom is not None and hasattr(geom, "coords"):
-            segment = [[float(x), float(y)] for x, y in geom.coords]
-        else:
+        segment = _edge_points(data.get("geometry"))
+        if not segment:
             segment = [[float(graph.nodes[u]["x"]), float(graph.nodes[u]["y"])],
                        [float(graph.nodes[v]["x"]), float(graph.nodes[v]["y"])]]
         # OSMnx edge geometry normally follows u->v; guard against reversed geometry.

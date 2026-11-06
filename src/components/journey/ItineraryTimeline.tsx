@@ -59,8 +59,8 @@ export const ItineraryTimeline: React.FC<ItineraryTimelineProps> = ({ legs }) =>
                 </div>
 
                 <div className="text-right shrink-0">
-                  <span className="font-bold text-ink">{leg.durationMinutes} min</span>
-                  <div className="text-[10px] text-ink-muted">{leg.distanceMeters} m</div>
+                  <span className="font-bold text-ink">{Math.max(1, Math.round(leg.durationMinutes))} min</span>
+                  <div className="text-[10px] text-ink-muted">{Math.round(leg.distanceMeters)} m</div>
                 </div>
               </div>
 
@@ -71,6 +71,10 @@ export const ItineraryTimeline: React.FC<ItineraryTimelineProps> = ({ legs }) =>
                   {step.stepFree ? (
                     <span className="text-[10px] font-semibold text-accessible shrink-0 flex items-center gap-0.5">
                       <CheckCircle2 className="w-3 h-3" /> Step-free
+                    </span>
+                  ) : step.accessUnknown ? (
+                    <span className="text-[10px] font-semibold text-warning shrink-0 flex items-center gap-0.5">
+                      <AlertTriangle className="w-3 h-3" /> Access unverified
                     </span>
                   ) : (
                     <span className="text-[10px] font-semibold text-disruption shrink-0 flex items-center gap-0.5">

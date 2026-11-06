@@ -1,4 +1,5 @@
 import React from 'react';
+import { fareLabel } from '../../utils/fare';
 import { JourneyRoute } from '../../types';
 import { 
   X, 
@@ -92,7 +93,7 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({
                 </td>
                 {routes.map(route => (
                   <td key={route.id} className="py-3 px-4 font-heading font-bold text-sm text-ink">
-                    {route.totalDurationMinutes} min
+                    {Math.round(route.totalDurationMinutes)} min
                   </td>
                 ))}
               </tr>
@@ -104,7 +105,7 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({
                 </td>
                 {routes.map(route => (
                   <td key={route.id} className="py-3 px-4 font-heading font-bold text-sm text-ink">
-                    ₹{route.totalFareINR}
+                    {fareLabel(route.totalFareINR, route.fareStatus)}
                   </td>
                 ))}
               </tr>
@@ -116,7 +117,7 @@ export const RouteComparison: React.FC<RouteComparisonProps> = ({
                 </td>
                 {routes.map(route => (
                   <td key={route.id} className="py-3 px-4 font-semibold text-ink">
-                    {route.walkingDistanceMeters} m
+                    {Math.round(route.walkingDistanceMeters)} m
                   </td>
                 ))}
               </tr>

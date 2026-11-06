@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "package:lambda": "python ../backend/route_lambda/build_package.py && python ../backend/disruption_lambda/build_package.py && python ../backend/event_publisher_lambda/build_package.py",
+    "package:lambda": "python ../backend/route_lambda/build_package.py && python ../backend/disruption_lambda/build_package.py && python ../backend/event_publisher_lambda/build_package.py && python ../backend/report_lambda/build_package.py",
     "build": "tsc -p tsconfig.json",
     "test": "npm run package:lambda && npm run build && node --test dist/test/**/*.test.js",
     "synth": "npm run package:lambda && npm run build && cdk synth"

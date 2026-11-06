@@ -8,6 +8,7 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 .pytest-tmp/
+.pytest_tmp*/
 /cache/
 traversal/routing/cache/*.json
 

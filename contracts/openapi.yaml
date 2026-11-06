@@ -60,6 +60,35 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
+  /v1/journeys:
+    post:
+      operationId: createJourney
+      summary: Plan Chennai journeys across bus, metro, suburban rail and walking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JourneyRequest"
+      responses:
+        "200":
+          description: Journey search completed, including a valid no-route result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JourneyResponse"
+        "400":
+          description: Malformed request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "503":
+          description: Live status or transit data is temporarily unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
   /v1/events/active:
     get:
       operationId: listActiveDisruptions
@@ -145,6 +174,10 @@ components:
       $ref: ../traversal/routing/contracts/route-request.schema.json
     RouteResponse:
       $ref: ../traversal/routing/contracts/route-response.schema.json
+    JourneyRequest:
+      $ref: ../traversal/routing/contracts/journey-request.schema.json
+    JourneyResponse:
+      $ref: ../traversal/routing/contracts/journey-response.schema.json
     DisruptionCreate:
       $ref: ./disruption-create.schema.json
     DisruptionEvent:

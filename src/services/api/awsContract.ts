@@ -104,7 +104,7 @@ export function buildAwsRouteRequest(
 }
 
 function clockTime(date: Date): string {
-  return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  return date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Kolkata' });
 }
 
 function edgeLeg(
@@ -141,6 +141,7 @@ function edgeLeg(
       distanceMeters: Number(edge.distance_m.toFixed(1)),
       durationMinutes: Math.max(0.01, Number(edge.duration_min.toFixed(2))),
       stepFree: verified,
+      accessUnknown: unknown,
       hazardWarning: unknown ? 'Wheelchair accessibility is unverified in OpenStreetMap.' : undefined,
     }],
   };

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/contracts/journey-request.schema.json",
+  "title": "Multimodal Journey Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["origin", "destination"],
+  "properties": {
+    "request_id": {"type": ["string", "null"], "maxLength": 128},
+    "origin": {"$ref": "#/$defs/point"},
+    "destination": {"$ref": "#/$defs/point"},
+    "departure_time": {"type": "string", "format": "date-time"},
+    "profile": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "wheelchair_user": {"type": "boolean", "default": false},
+        "unknown_accessibility_policy": {"type": "string", "enum": ["strict", "relaxed"], "default": "relaxed"},
+        "walking_speed_mps": {"type": "number", "exclusiveMinimum": 0, "default": 1.0}
+      }
+    },
+    "constraints": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "max_walking_distance_m": {"type": "number", "minimum": 0, "default": 2000},
+        "max_routes": {"type": "integer", "minimum": 1, "maximum": 5, "default": 3},
+        "modes": {"type": "array", "minItems": 1, "items": {"enum": ["bus", "metro", "rail"]}}
+      }
+    }
+  },
+  "$defs": {
+    "point": {
+      "type": "object", "additionalProperties": false,
+      "required": ["latitude", "longitude"],
+      "properties": {
+        "name": {"type": "string", "maxLength": 200},
+        "latitude": {"type": "number", "minimum": -90, "maximum": 90},
+        "longitude": {"type": "number", "minimum": -180, "maximum": 180}
+      }
+    }
+  }
+}
